@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        .image{
+  height:300px;
+  width:400px;
+}
+</style> 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="https://static.toiimg.com/photo/72975551.cms" class="image" id="pic1" style="display:none">
+   <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" class="image" id="pic2" style="display:none">
+   <img src="https://images.ctfassets.net/hrltx12pl8hq/3MbF54EhWUhsXunc5Keueb/60774fbbff86e6bf6776f1e17a8016b4/04-nature_721703848.jpg?fit=fill&w=480&h=270" style="display:none"  class="image" id="pic3">
+   <button type="button" onclick=fun2()>backward</button>
+  <button type="button" onclick=fun1()>forword</button>
+    <script>
+        var ar=["pic1","pic2","pic3"];
+document.getElementById(ar[0]).style.display="block";
+var forward=0;
+var backward=2;
+function fun1()
+{ document.getElementById(ar[forward]).style.display="none";
+ forward=(forward+1)%3;
+ backward=(backward+1)%3; 
+document.getElementById(ar[forward]).style.display="block";
+  }
+function fun2()
+{ 
+  
+  document.getElementById(ar[forward]).style.display="none";
+document.getElementById(ar[backward]).style.display="block";
+  forward=backward;
+  if(backward==0){
+    backward=2;
+  }
+ else{
+ backward=(Math.abs(backward-1))%3;
+ }
+  
+}
+
+    </script>
+</body>
+</html>
