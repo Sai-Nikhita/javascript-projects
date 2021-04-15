@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="formm">
+        <input id="demo1">
+        <button type="button" id="btn" onclick="myfun()">add</button>
+          <button type="button" id="btn2" onclick="myfun2()">reset</button>
+          <div id="list">
+          </div>  
+          <script>
+          function myfun()
+{
+  
+ x=document.getElementById("demo1").value;
+  if(x=="")
+    {
+      alert("cannot be added");
+      return;
+    }
+  var a=document.createElement("div");
+  var btn=document.createElement("button");
+ btn.addEventListener("click",myfun3);
+  var btntxt=document.createTextNode("delete");
+  btn.appendChild(btntxt);
+  var p=document.createElement("p");
+  var ptxt=document.createTextNode(x);
+  p.appendChild(ptxt);
+  a.appendChild(p);
+  a.appendChild(btn);
+  var lists=document.getElementById("list");
+  lists.appendChild(a);
+document.getElementById("formm").reset(); }
+function myfun2()
+{
+  var k=document.getElementsByTagName("DIV");
+   var l=k.length;
+   for (var i = l - 1; i >= 0; --i) {
+  k[i].remove();
+}
+  
+     
+}
+function myfun3()
+{ 
+  
+  return;
+}
+</script>
+</body>
+</html>
