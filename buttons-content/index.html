@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h2><center>BOOK GUIDE</center></h2>
+    <p><center>choose the genre to get started<center></p>
+      <hr><br>
+      <button type="button" id="btn1" onclick="music()">Music</button>
+       <button type="button" id="btn2" onclick="food()">Food</button>
+       <button type="button" id="btn3"onclick="travel()">Travel</button>
+      <br>
+      <table>
+        <tr>
+        <td id="para1"></td>
+        </tr>
+        <tr>
+        <td id="para2"></td>
+        </tr>
+        <tr>
+        <td id="para3"></td>
+        </tr>
+        <table>
+            <script>var x=document.getElementById("para1");
+                var y=document.getElementById("para2");
+                var z=document.getElementById("para3");
+                function music()
+                {
+                  x.innerHTML="Stereo Hearts "+"<br>"+
+                "4.5/5";
+                  y.innerHTML="counting stars"+"<br>"+
+                "4/5";
+                  z.innerHTML="";
+                }
+                function food()
+                {
+                  x.innerHTML="pasta "+"<br>"+
+                "4.5/5";
+                  y.innerHTML="sandwich"+"<br>"+
+                "4/5";
+                  z.innerHTML="pizza"+"<br>"+
+                "4/5";
+                }
+                function travel()
+                {
+                  x.innerHTML="ooty "+"<br>"+
+                "4.5/5";
+                  y.innerHTML="coorg"+"<br>"+
+                "4/5";
+                  z.innerHTML="";
+                }</script>
+          </body>
+          </html>
