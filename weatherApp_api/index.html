@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>body{
+        background-image:url('https://media.apnarm.net.au/media/images/2020/08/07/v3imagesbina76005dedfda6535ff832055ec0c5527-pcbcbniwrx8555v0tu2.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      input{
+        width:700px;
+        height:40px;
+        border:3px solid black;
+        font-size:32px;
+      }
+      #btn{
+        height:46px;
+        font-size:32px;
+        width:40px;
+      }
+      #div1,#div2{
+        text-align:center;
+      }
+      p{
+        font-size:32px;
+        
+      }
+      </style>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><body>
+        <br>
+        <br>
+        <br>
+        <div id="div1"><input id="cityname" placeholder="Type the city here...."><button type="button" id="btn" onclick="getdetails()"><i class="fa fa-search"></i></button></div>
+        <br>
+        <div id="div2">
+      <p id="city"></p>
+        <p id="temp"></p>
+        <p id="lat"> </p>
+        <p id="long"></p>
+        </div>
+        <script>var temp=document.getElementById("temp");
+            var lat=document.getElementById("lat");
+            var long=document.getElementById("long");
+            var cityname=document.getElementById("city");
+            function getdetails(){
+              var city=document.getElementById("cityname").value;
+              document.getElementById("cityname").value="";
+              if(city==""){
+                alert("provide proper city name");
+                return;
+              }
+             
+              var first='https://api.openweathermap.org/data/2.5/weather?q=';
+            
+            var last='&appid=f13db273ebb694023a553a10828e4f49';
+            var url=first+city+last;
+            fetch(url)
+              .then(response => response.json())
+              .then(data =>{
+              console.log(data);
+              temp.innerHTML="temperature: "+data.main.temp;
+              lat.innerHTML="latitude: "+data.coord.lon;
+              long.innerHTML="longitude: "+data.coord.lat;
+              cityname.innerHTML="CityName: "+data.name;
+            })
+                .catch( error => {
+              console.log(error);
+            alert("not a valid city.try again!!")});
+            }
+             </script>
+</body>
+</html>
