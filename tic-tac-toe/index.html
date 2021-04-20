@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    button{
+  background-color: yellow;
+  color:black;
+  text-align:center;
+  font-size:48px;
+  width:100%;
+  padding:18px 18px;
+}
+input{
+  background-color:red;
+  width:10%;
+  padding:10px 10px;
+  font-size:18px;
+}
+</style>
+<body>
+    <h1><center>TIC-TAC-TOE</center></h1>
+    <center>
+    <table>
+      <tr>
+        <td><button id="btn1" type="button" onclick='myfun(this.id)' value='99' >__ </button></td>
+        <td><button id="btn2" type="button" onclick='myfun(this.id)' value='99'>__</button></td>
+        <td><button id="btn3" type="button" onclick='myfun(this.id)' value='99'>__</button></td>
+      </tr>
+      <tr>
+        <td><button id="btn4" type="button" onclick='myfun(this.id)' value='99'>__</button></td>
+        <td><button id="btn5" type="button" onclick='myfun(this.id)' value='99'>__</button></td>
+        <td><button id="btn6" type="button" onclick='myfun(this.id)' value='99'>__</button></td>
+      </tr>
+      <tr>
+        <td><button id="btn7" type="button" onclick='myfun(this.id)' value='99'>__</button></td>
+        <td><button id="btn8" type="button" onclick='myfun(this.id)' value='99'>__</button></td>
+        <td><button id="btn9" type="button" onclick='myfun(this.id)' value='99'>__</button></td>
+      </tr>
+    </table>
+    </center>
+    <br>
+    <center><input type="button" value="restart" onclick="restart()"> </center>
+    <script>
+        var count = -1;
+var flag=0;
+var win_chances = [["btn1","btn2","btn3"],["btn1","btn4","btn7"],["btn1","btn5","btn9"],["btn2","btn5","btn8"],["btn3","btn5","btn7"],["btn3","btn5","btn7"],["btn3","btn6","btn9"],["btn4","btn5","btn6"],["btn7","btn8","btn9"]];
+var k = 0;
+var symbols = ["X ", "0 ", "X ", "0 ", "X ", "0 ", "X ", "0 ", "X "];
+
+
+function myfun(id) {
+  if(flag==1){
+    return;
+  }
+  
+  count++;
+  var x = document.getElementById(id);
+  x.innerHTML = symbols[count];
+  x.disabled = true;
+  var y = (x.value = symbols[count]);
+  for (var i = 0; i < 9; i++) {
+    
+     var  a=document.getElementById(win_chances[i][0]).value;
+    
+    var   b=document.getElementById(win_chances[i][1]).value;
+     var  c=document.getElementById(win_chances[i][2]).value;
+    if(a==99||b==99||c==99)
+    {
+      continue;
+    }
+    if(a==b&&b==c){
+      alert("the winner is :"+symbols[count]);
+      flag=1;
+      return;
+      
+    }
+  }
+  if(count==8)
+  {
+    alert("opps its a tie");
+ }
+  
+  
+}
+function restart()
+{
+  
+history.go(0);
+}
+    </script>
+</body>
+</html>
